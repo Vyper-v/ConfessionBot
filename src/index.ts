@@ -66,12 +66,9 @@ client.on(Events.InteractionCreate, async (interaction) => {
 
 async function bootstrap() {
   try {
-    await rest.put(
-      Routes.applicationGuildCommands(config.clientId, config.guildId),
-      {
-        body: commands,
-      }
-    );
+    await rest.put(Routes.applicationCommands(config.clientId), {
+      body: commands,
+    });
   } catch (error) {
     console.error(error);
   }
